@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 
+// by Munajatul Azizah - 16650058
+
 package praktikum01;
 
 import java.io.*;
