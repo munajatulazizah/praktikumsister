@@ -1,0 +1,32 @@
+
+// MUNAJATUL AZIZAH 
+// 16650058
+
+
+package tugas01;
+
+import java.io.IOException;
+import java.net.InetAddress;
+
+public class scan {
+    public static void main(String[] args) throws IOException{
+        System.out.println("scan IP");
+        String output = null;
+        try {
+            InetAddress ia = InetAddress.getLocalHost();
+            byte [] ip = ia.getAddress();
+            for (int i = 1; i <= 254; i++) {
+                InetAddress address = InetAddress.getByAddress(ip);
+                output = address.toString();
+                ip[3]=(byte)i;
+                if (address.isReachable(3000)) {
+                    System.out.println(output+" is Active");
+                } else {
+                    System.out.println(output+" is not Active");
+                }
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+}
