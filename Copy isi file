@@ -1,0 +1,36 @@
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package tugas02;
+import java.io.*;
+
+public class CopyIsiFile_nomor1 {
+    public static void main(String[] args) {
+        try {
+            FileReader fr = new FileReader("e:/datt/semester5/prakDistributedSystem/oldfile_copy.txt");
+            BufferedReader bufred = new BufferedReader(fr);
+            FileWriter write = new FileWriter("e:/datt/semester5/prakDistributedSystem/newfile_paste.txt");
+            BufferedWriter bufwrit = new BufferedWriter(write);
+            String line ;
+            line=bufred.readLine();
+            while (line!=null){
+                try{
+                    bufwrit.write(line,0,line.length());
+                    bufwrit.newLine();
+                    line=bufred.readLine();
+                    System.out.println("data berhasil di Copy");
+                } catch (Exception e){
+                    System.out.println("data gagal di Copy");
+                }
+            }
+            bufred.close();
+            bufwrit.close();
+        }
+        catch(Exception e){
+        e.printStackTrace();
+        }
+    }
+}
